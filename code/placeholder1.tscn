@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://placeholder1.gd" type="Script" id=1]
+[ext_resource path="res://assets/intro/boy_bus.png" type="Texture" id=2]
+[ext_resource path="res://assets/intro/bus.png" type="Texture" id=3]
+[ext_resource path="res://assets/intro/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/themes/text_box.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/sounds/somstart.wav" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://minigame/MEGAMAN10 copy.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 38
+font_data = SubResource( 1 )
+
+[node name="init_btn" type="Button"]
+margin_right = 729.0
+margin_bottom = 1096.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 405.375, 539 )
+scale = Vector2( 0.524531, 0.69125 )
+texture = ExtResource( 4 )
+
+[node name="bus" type="Sprite" parent="."]
+position = Vector2( 216, 661 )
+scale = Vector2( 0.523, 0.496833 )
+texture = ExtResource( 3 )
+
+[node name="boy" type="Sprite" parent="."]
+position = Vector2( 658.625, 731.25 )
+scale = Vector2( 0.16525, 0.156333 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -348.5
+margin_top = -200.0
+margin_right = 339.5
+margin_bottom = -41.0
+custom_styles/panel = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -324.0
+margin_top = -155.0
+margin_right = 330.0
+margin_bottom = -12.0
+custom_fonts/font = SubResource( 2 )
+text = "De novo, o ônibus atrasou e vou tomar bronca da professora por não chegar no horário. Se ao menos o Prefeito aumentasse a frota de ônibus..."
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -13.0
+
+[connection signal="pressed" from="." to="." method="_on_init_btn_pressed"]

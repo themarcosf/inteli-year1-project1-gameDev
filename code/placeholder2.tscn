@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://placeholder2.gd" type="Script" id=1]
+[ext_resource path="res://assets/intro/boy_room.png" type="Texture" id=2]
+[ext_resource path="res://assets/intro/bedroom.png" type="Texture" id=3]
+[ext_resource path="res://assets/themes/text_box.tres" type="StyleBox" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://minigame/MEGAMAN10 copy.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 38
+font_data = SubResource( 1 )
+
+[node name="init_btn" type="Button"]
+margin_right = 729.0
+margin_bottom = 1096.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bedroom" type="Sprite" parent="."]
+position = Vector2( 311, 559 )
+scale = Vector2( 0.647265, 0.746625 )
+texture = ExtResource( 3 )
+
+[node name="boy" type="Sprite" parent="."]
+position = Vector2( 584.9, 626.533 )
+scale = Vector2( 0.191375, 0.200667 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 16.0
+margin_top = 856.0
+margin_right = 703.0
+margin_bottom = 1056.0
+custom_styles/panel = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 672.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 2 )
+text = "Essa noite choveu demais e inundou tudo no bairro. Não bastasse a tristeza dos meus pais, vou perder a aula super difícil de matemática que vale ponto!"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_init_btn_pressed"]

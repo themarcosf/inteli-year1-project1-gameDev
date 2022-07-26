@@ -1,0 +1,382 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Score.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/characters/Presidente.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-BoldItalic.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-MediumItalic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/icons/information-circle.svg" type="Texture" id=8]
+[ext_resource path="res://assets/icons/information-circle-outline.svg" type="Texture" id=9]
+[ext_resource path="res://Card.gd" type="Script" id=10]
+[ext_resource path="res://assets/sounds/Card1sfx.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/Card2sfx.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/Card3sfx.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Thin.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Italic.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://assets/sounds/cardsSong.wav" type="AudioStream" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 340, 301.5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.341176, 0.458824, 0.564706, 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 22
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 22
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 22
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 22
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BottomBar/HBoxContainer/MarginContainer2/InfoButton:material:shader_param/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="Card" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -568, 48 )
+mouse_filter = 2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" parent="ScoreContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 720.0
+margin_bottom = 140.0
+
+[node name="TextContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.259
+anchor_right = 0.5
+anchor_bottom = 0.259
+margin_left = -360.0
+margin_top = -135.72
+margin_right = 360.0
+margin_bottom = 80.28
+custom_constants/margin_right = 40
+custom_constants/margin_top = 10
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="TextContainer"]
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 680.0
+margin_bottom = 215.0
+size_flags_horizontal = 5
+size_flags_vertical = 6
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_italics_font = SubResource( 2 )
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Lorem ipsum[/b] dolor sit amet, [i]consectetur[/i] adipiscing [b][i]elit[/i][/b]. Vivamus sed commodo risus, at dictum magna. Nulla accumsan bibendum enim. Proin mattis libero vel semper tristique. Sed eleifend elit est, a efficitur nunc auctor vitae.[/center]"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed commodo risus, at dictum magna. Nulla accumsan bibendum enim. Proin mattis libero vel semper tristique. Sed eleifend elit est, a efficitur nunc auctor vitae."
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortraitBackground" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.659
+anchor_right = 0.5
+anchor_bottom = 0.659
+margin_left = -199.0
+margin_top = -171.72
+margin_right = 185.0
+margin_bottom = 209.28
+mouse_filter = 2
+color = Color( 0.00392157, 0, 0, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -358.0
+margin_top = -159.0
+margin_right = 360.0
+margin_bottom = 440.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 530
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portrait" type="Sprite" parent="CharacterContainer"]
+position = Vector2( 351, 349.5 )
+scale = Vector2( 0.6, 0.595313 )
+texture = ExtResource( 2 )
+
+[node name="Hitboxes" type="Node2D" parent="CharacterContainer"]
+position = Vector2( 48, -244 )
+
+[node name="LeftSwipeHitbox" type="Area2D" parent="CharacterContainer/Hitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterContainer/Hitboxes/LeftSwipeHitbox"]
+position = Vector2( -40, 540 )
+shape = SubResource( 8 )
+
+[node name="RightSwipeHitbox" type="Area2D" parent="CharacterContainer/Hitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterContainer/Hitboxes/RightSwipeHitbox"]
+position = Vector2( 640, 540 )
+shape = SubResource( 8 )
+
+[node name="Name" type="Label" parent="CharacterContainer"]
+margin_top = 551.0
+margin_right = 688.0
+margin_bottom = 578.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Nome do Personagem"
+align = 1
+valign = 1
+
+[node name="DecisionTextContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -330.0
+margin_top = -168.0
+margin_right = 330.0
+margin_bottom = 9.0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DecisionA" type="Label" parent="DecisionTextContainer"]
+margin_right = 305.0
+margin_bottom = 177.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DecisionB" type="Label" parent="DecisionTextContainer"]
+margin_left = 355.0
+margin_right = 660.0
+margin_bottom = 177.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB...."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -97.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBarBackground" type="ColorRect" parent="BottomBar"]
+margin_right = 720.0
+margin_bottom = 97.0
+color = Color( 0.152941, 0.490196, 0.631373, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar"]
+margin_right = 720.0
+margin_bottom = 97.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomBar/HBoxContainer"]
+margin_right = 477.0
+margin_bottom = 97.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 13
+
+[node name="Date" type="Label" parent="BottomBar/HBoxContainer/MarginContainer"]
+margin_top = 24.0
+margin_right = 477.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Janeiro"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="BottomBar/HBoxContainer"]
+margin_left = 481.0
+margin_right = 720.0
+margin_bottom = 97.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+custom_constants/margin_right = 0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 90
+custom_constants/margin_bottom = 0
+
+[node name="InfoButton" type="TextureButton" parent="BottomBar/HBoxContainer/MarginContainer2"]
+margin_left = 90.0
+margin_top = 20.0
+margin_right = 239.0
+margin_bottom = 97.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+
+[node name="InfoPanel" type="PopupPanel" parent="."]
+anchor_left = 0.004
+anchor_top = 0.146
+anchor_right = 0.996
+anchor_bottom = 0.906
+margin_left = -10.88
+margin_top = -8.67999
+margin_right = 10.88
+margin_bottom = 5.51996
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="RichTextLabel" parent="InfoPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -348.0
+margin_top = -397.5
+margin_right = 348.0
+margin_bottom = 397.5
+custom_fonts/mono_font = SubResource( 12 )
+custom_fonts/bold_italics_font = SubResource( 13 )
+custom_fonts/italics_font = SubResource( 14 )
+custom_fonts/bold_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+
+[node name="ChangeCardSfx1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="ChangeCardSfx2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="ChangeCardSfx3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="SongCard" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -7.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 17 )
+
+[connection signal="input_event" from="CharacterContainer/Hitboxes/LeftSwipeHitbox" to="." method="_on_LeftSwipeHitbox_input_event"]
+[connection signal="mouse_entered" from="CharacterContainer/Hitboxes/LeftSwipeHitbox" to="." method="_on_LeftSwipeHitbox_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterContainer/Hitboxes/LeftSwipeHitbox" to="." method="_on_LeftSwipeHitbox_mouse_exited"]
+[connection signal="input_event" from="CharacterContainer/Hitboxes/RightSwipeHitbox" to="." method="_on_RightSwipeHitbox_input_event"]
+[connection signal="mouse_entered" from="CharacterContainer/Hitboxes/RightSwipeHitbox" to="." method="_on_RightSwipeHitbox_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterContainer/Hitboxes/RightSwipeHitbox" to="." method="_on_RightSwipeHitbox_mouse_exited"]
+[connection signal="pressed" from="BottomBar/HBoxContainer/MarginContainer2/InfoButton" to="." method="_on_InfoButton_pressed"]
